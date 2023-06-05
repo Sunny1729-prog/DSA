@@ -1,0 +1,20 @@
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+int main() {
+    int n=5;
+    int *ptr = (int*) malloc(n*sizeof(int));
+    for(int i=0;i<n;i++){
+        ptr[i]=i*2;
+    }
+    cout<<ptr<<endl;
+    cout<<sizeof(ptr)/sizeof(int)<<endl;
+    for(int i=0;i<n;i++){
+        cout<<*ptr++<<" "; //*(ptr+i) will give same result  
+    }
+    cout<<ptr<<endl;
+    cout<<sizeof(ptr)/sizeof(int)<<endl;
+    //discuss why the output of 2 remains same
+    free(ptr);   
+    return 0;
+}
